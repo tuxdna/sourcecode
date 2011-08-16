@@ -1,0 +1,7 @@
+NumberOfAlphabets:2
+NumberOfStates:2
+InitialState:1
+FinalState:2
+1 2
+2 2
+
