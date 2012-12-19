@@ -150,9 +150,19 @@ public class ParallelProcess {
 	}
 
 	public static void main(String[] args) {
+		int producerCount = 8;
+		int consumerCount = 400;
+		int queueSize = 2;
+		if (args.length == 3) {
+			producerCount = Integer.parseInt(args[0]);
+			consumerCount = Integer.parseInt(args[1]);
+			queueSize = Integer.parseInt(args[2]);
+		}
+
 		// provide number of producers, number of consumers and the
 		// max-queue-length
-		ParallelProcess process = new ParallelProcess(8, 400, 2);
+		ParallelProcess process = new ParallelProcess(producerCount,
+				consumerCount, queueSize);
 		process.execute();
 		System.out.println("Thread: " + Thread.currentThread().getName()
 				+ " FINISHED");
