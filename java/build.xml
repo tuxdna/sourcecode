@@ -6,7 +6,7 @@
               as the first entry and export the buildfile again. -->
 <project basedir="." default="build" name="all_sources">
     <property environment="env"/>
-    <property name="ECLIPSE_HOME" value="../../../../../../../../usr/lib64/eclipse"/>
+    <property name="ECLIPSE_HOME" value="/usr/lib64/eclipse"/>
     <property name="debuglevel" value="source,lines,vars"/>
     <property name="target" value="1.6"/>
     <property name="source" value="1.6"/>
@@ -58,10 +58,9 @@
             <classpath refid="all_sources.classpath"/>
         </java>
     </target>
-  </target>
-  <target name="RBT">
+    <target name="RBT">
       <java classname="org.tuxdna.RBT" failonerror="true" fork="no">
-          <classpath refid="all_sources.classpath"/>
+        <classpath refid="all_sources.classpath"/>
       </java>
-  </target>
+    </target>
 </project>
