@@ -1,0 +1,10 @@
+# YAML file
+development:
+  cache_expiration: 60
+
+production:
+  cache_expiration: 60
+
+test:
+  cache_expiration: 60
+
