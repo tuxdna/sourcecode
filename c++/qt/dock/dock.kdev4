@@ -1,0 +1,4 @@
+[Project]
+Name=dock
+Manager=KDevCMakeManager
+VersionControl=
