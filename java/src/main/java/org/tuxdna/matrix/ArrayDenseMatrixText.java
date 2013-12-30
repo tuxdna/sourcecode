@@ -21,10 +21,10 @@ public class ArrayDenseMatrixText extends TestCase {
 				5);
 		for (int r = 0; r < rows; r++)
 			for (int c = 0; c < columns; c++)
-				mat.put(r, c, new ArithmeticFloat((float) (r*rows + c)));
-		
+				mat.put(r, c, new ArithmeticFloat((float) (r * rows + c)));
+
 		IVector<ArithmeticFloat> rowVec = mat.getRowVector(0);
-		for(int i=0; i< rowVec.length(); i++) {
+		for (int i = 0; i < rowVec.length(); i++) {
 			ArithmeticFloat v = rowVec.get(i);
 			System.out.print(v);
 			v.add((float) 1);
@@ -34,11 +34,11 @@ public class ArrayDenseMatrixText extends TestCase {
 			v.divBy((float) 3);
 			System.out.print("  " + v);
 			v.sub((float) 1);
-			System.out.println("  "+v);
+			System.out.println("  " + v);
 		}
 
 		IVector<ArithmeticFloat> colVec = mat.getColumnVector(0);
-		for(int i=0; i< colVec.length(); i++) {
+		for (int i = 0; i < colVec.length(); i++) {
 			ArithmeticFloat v = colVec.get(i);
 			System.out.print(v);
 			v.add((float) 1);
@@ -48,7 +48,7 @@ public class ArrayDenseMatrixText extends TestCase {
 			v.divBy((float) 3);
 			System.out.print("  " + v);
 			v.sub((float) 1);
-			System.out.println("  "+v);
+			System.out.println("  " + v);
 		}
 
 	}

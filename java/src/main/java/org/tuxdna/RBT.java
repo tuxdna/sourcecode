@@ -57,49 +57,33 @@ public class RBT {
 	}
 
 	// number of nodes between interval [lo, hi]
+	public int countLessThan(int q) {
+		Node n = root;
+		int l = size(n);
+		while(n!=null) {
+			if( q < n.data) {
+				l = l - size(n.right) - 1;
+				n = n.left;
+			} else {
+				n = n.right;
+			}
+		}
+		return l;
+	}
+	
+	// number of nodes between interval [lo, hi]
 	public int size(int lo, int hi) {
-		int rankLow = 0;
-		int rankHigh = 0;
+        if (lo > hi) return 0;
+        
+        int ltHi = countLessThan(hi);
+        if(ltHi == 0) return 0;
+        
+        int ltLo = countLessThan(lo);
+        if(ltLo == 0) return ltHi;
+        
+        if(ltLo == ltHi) return 0;        
 
-		if (root == null)
-			return 0;
-		Node k = root, p = null;
-		// search for lo
-		while (k != null) {
-			p = k;
-			if (lo < k.data) k = k.left;
-			else if (lo > k.data) k = k.right;
-			else break;
-
-		}
-
-		// if k is null, we didnt find the lo node
-		if (k == null) {
-			if (lo < p.data) rankLow = rank(p);
-			else rankLow = rank(p) + 1;
-		} else {
-			rankLow = rank(lo);
-		}
-
-		k = root;
-		p = null;
-		// search for hi
-		while (k != null) {
-			p = k;
-			if (hi < k.data) k = k.left;
-			else if (hi > k.data) k = k.right;
-			else break;
-		}
-
-		// if k is null, we didnt find the hi node
-		if (k == null) {
-			if (hi < p.data) rankHigh = rank(p) + 1;
-			else rankHigh = rank(p);
-		} else {
-			rankLow = rank(lo);
-		}
-
-		return rankHigh - rankLow + 1;
+        return countLessThan(hi) - countLessThan(lo);
 	}
 
 	public int size() {
